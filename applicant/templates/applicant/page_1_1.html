@@ -1,0 +1,67 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information (Page 1)</title>
+    <link rel="stylesheet" href="{% static 'applicant/css/styles.css' %}">
+</head>
+<body>
+    <h1>Personal Information Sheet</h1>
+    <form method="post" action="{% url 'applicant:page_1' %}">
+        {% csrf_token %}
+        
+        <p>Employee Code: <input type="text" name="employee_code"></p>
+        <p>Designation: <input type="text" name="designation"></p>
+        <p>D.O.J: <input type="date" name="date_of_joining"></p>
+
+        <h3>1. Name:</h3>
+        <p>First: <input type="text" name="first_name"></p>
+        <p>Middle: <input type="text" name="middle_name"></p>
+        <p>Surname: <input type="text" name="surname"></p>
+
+        <h3>2. Husband’s Name/Father Name:</h3>
+        <p><input type="text" name="husband_father_name"></p>
+
+        <h3>3. Mother's Name:</h3>
+        <p><input type="text" name="mother_name"></p>
+
+        <h3>4. Date of Birth:</h3>
+        <p><input type="date" name="date_of_birth"></p>
+
+        <h3>5. Gender:</h3>
+        <p>
+            F <input type="radio" name="gender" value="F">
+            M <input type="radio" name="gender" value="M">
+        </p>
+
+        <h3>6. Blood Group:</h3>
+        <p><input type="text" name="blood_group"></p>
+
+        <h3>7. Address:</h3>
+        <p>Present: <textarea name="present_address"></textarea></p>
+        <p>Permanent: <textarea name="permanent_address"></textarea></p>
+
+        <h3>8. PAN No.:</h3>
+        <p><input type="text" name="pan_no"></p>
+
+        <h3>9. Marital Status:</h3>
+        <p><input type="text" name="marital_status"></p>
+        <p>D.O.M: <input type="date" name="date_of_marriage"></p>
+
+        <button type="submit">Save</button>
+        
+    </form>
+
+    <div class="button-group">
+         
+        <button class="back-to-dashboard"><a href="{% url 'applicant:dashboard' %}">Back to Dashboard</a></button>
+        <button><a href="{% url 'applicant:page_2' %}">Next</a></button>
+    </div>
+
+<br>
+</body>
+</html>
